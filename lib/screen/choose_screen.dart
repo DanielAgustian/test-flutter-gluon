@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:test_flutter_gluon/constant/color_constant.dart';
+import 'package:test_flutter_gluon/constant/route_constant.dart';
 import 'package:test_flutter_gluon/constant/text_constant.dart';
+import 'package:test_flutter_gluon/widgets/gluon_appbar.dart';
 import 'package:test_flutter_gluon/widgets/gluon_button.dart';
 
 class ChooseScreen extends StatefulWidget {
@@ -14,14 +17,7 @@ class _ChooseScreenState extends State<ChooseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorConstant().colorBg,
-      appBar: AppBar(
-        backgroundColor: ColorConstant().colorSecondary,
-        title: Text(
-          TextConstant().chooseTitle,
-          style: TextStyle(color: ColorConstant().colorPrimary),
-        ),
-        centerTitle: true,
-      ),
+      appBar: GluonAppbar(title: TextConstant().chooseTitle),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -31,6 +27,7 @@ class _ChooseScreenState extends State<ChooseScreen> {
               },
               text: TextConstant().widgetTest1,
             ),
+            
             GluonButton(
               onPressed: () {
                 gotoDartOOPTest1();
@@ -43,6 +40,9 @@ class _ChooseScreenState extends State<ChooseScreen> {
     );
   }
 
-  void gotoWidgetTest1() {}
+  void gotoWidgetTest1() {
+    context.go(RouteConstant().widgetTest1);
+  }
+
   void gotoDartOOPTest1() {}
 }

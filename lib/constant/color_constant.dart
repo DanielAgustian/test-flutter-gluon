@@ -7,4 +7,5 @@ class ColorConstant{
   final Color colorQuardary = const Color(0xff6D4C3D);
   final Color colorBg = const Color(0xffDCC9B6);
   final Color colorShadow = const Color(0x80ababab);
+  final Color colorWhite = const Color(0xffffffff);
 }
