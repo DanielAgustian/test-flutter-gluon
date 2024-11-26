@@ -22,18 +22,26 @@ class GluonButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: colorBg ?? ColorConstant().colorSecondary,
-          foregroundColor: colorText ?? ColorConstant().colorPrimary,
-          shadowColor: colorShadow ?? ColorConstant().colorShadow,
-          textStyle: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: colorText ?? ColorConstant().colorPrimary,
+      child: SizedBox(
+        width: double.infinity,
+        child: ElevatedButton(
+          
+          onPressed: onPressed,
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16)
+            ),
+            backgroundColor: colorBg ?? ColorConstant().colorSecondary,
+            foregroundColor: colorText ?? ColorConstant().colorPrimary,
+            shadowColor: colorShadow ?? ColorConstant().colorShadow,
+            textStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: colorText ?? ColorConstant().colorPrimary,
+              fontSize: 16
+            ),
           ),
+          child: child ?? Text(text),
         ),
-        child: child ?? Text(text),
       ),
     );
   }

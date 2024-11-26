@@ -29,13 +29,12 @@ class GluonAppbar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: ColorConstant().colorSecondary,
       title: Text(
         title,
-        style: TextStyle(color: ColorConstant().colorPrimary),
+        style: TextStyle(color: ColorConstant().colorPrimary, fontWeight: FontWeight.bold),
       ),
       centerTitle: isCenterTitle,
     );
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(55);
 }

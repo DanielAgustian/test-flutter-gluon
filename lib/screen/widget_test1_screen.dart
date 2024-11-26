@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter_gluon/constant/color_constant.dart';
 import 'package:test_flutter_gluon/constant/text_constant.dart';
+import 'package:test_flutter_gluon/utils/widget_utils.dart';
 import 'package:test_flutter_gluon/widgets/gluon_button.dart';
 import 'package:test_flutter_gluon/widgets/gluon_images.dart';
 import 'package:test_flutter_gluon/widgets/gluon_margin.dart';
@@ -16,56 +17,131 @@ class WidgetTest1Screen extends StatefulWidget {
 class _WidgetTest1ScreenState extends State<WidgetTest1Screen> {
   TextEditingController controllerName = TextEditingController();
   TextEditingController controllerPassword = TextEditingController();
+  final _columnKey = GlobalKey();
+  double currColumnHeight = 1000;
+  double currAvailHeight = 1001;
+  double keyboardHeight = 0;
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
-
-    return Scaffold(
+    keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
+    return SafeArea(
+        child: Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: ColorConstant().colorBg,
-      body: Container(
-        height: size.height - keyboardHeight,
-        width: size.width,
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 30,
+      body: handlerScroll(
+          size: size,
+          keyboardHeight: keyboardHeight,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              key: _columnKey,
+              mainAxisSize: currAvailHeight < currColumnHeight
+                  ? MainAxisSize.min
+                  : MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Align(
+                  alignment: Alignment.center,
+                  child: Image(
+                    image: GluonImages.logoImage,
+                    width: 200,
+                  ),
+                ),
+                const Expanded(
+                  flex: 2,
+                  child: GluonMargin(type: MarginSize.medium),
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    TextConstant().titleWidgetTest,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: ColorConstant().colorQuardary,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24),
+                  ),
+                ),
+                const GluonMargin(type: MarginSize.medium),
+                ...formLogin(),
+                const Expanded(
+                  flex: 3,
+                  child: GluonMargin(type: MarginSize.medium),
+                ),
+                InkWell(
+                  onTap: onClickRegister,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      TextConstant().registerButton,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: ColorConstant().colorQuardary,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                )
+              ],
             ),
-            Image(
-              image: GluonImages.logoImage,
-              width: 200,
-            ),
-            Expanded(
-              child: SizedBox(),
-              flex: 2,
-            ),
-            
-            GluonTextfield(
-              controller: controllerName,
-              placeholder: TextConstant().placeholder1,
-            ),
-            const GluonMargin(type: MarginSize.medium),
-            GluonTextfield(
-              controller: controllerName,
-              placeholder: TextConstant().placeholder2,
-            ),
-            const GluonMargin(type: MarginSize.medium),
-            GluonButton(onPressed: () {}, text: TextConstant().loginButton),
-            Expanded(
-              child: SizedBox(),
-              flex: 6,
-            ),
-            SizedBox(
-              height: 30,
-            )
-          ],
-        ),
+          )),
+    ));
+  }
+
+  List<Widget> formLogin() {
+    return [
+      GluonTextfield(
+        controller: controllerName,
+        placeholder: TextConstant().placeholder1,
       ),
-    );
+      const GluonMargin(type: MarginSize.medium),
+      GluonTextfield(
+        controller: controllerPassword,
+        placeholder: TextConstant().placeholder2,
+        isPassword: true,
+      ),
+      const GluonMargin(type: MarginSize.medium),
+      GluonButton(
+        onPressed: onClickLogin,
+        text: TextConstant().loginButton,
+      ),
+    ];
+  }
+
+  Widget handlerScroll({
+    required Size size,
+    required double keyboardHeight,
+    required Widget child,
+  }) {
+    return LayoutBuilder(builder: (context, constraints) {
+      currColumnHeight = constraints.maxHeight;
+      currAvailHeight = size.height - keyboardHeight;
+      if (currAvailHeight < (currColumnHeight + 21)) {
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: currColumnHeight,
+              ),
+              child: IntrinsicHeight(child: child)),
+        );
+      }
+      return child;
+    });
+  }
+
+  void onClickLogin() {
+    WidgetUtils().showFlutterToast("Click Login!");
+  }
+
+  void onClickRegister() {
+    WidgetUtils().showFlutterToast("Click Register!");
   }
 }
