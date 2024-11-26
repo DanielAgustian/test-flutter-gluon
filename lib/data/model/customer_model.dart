@@ -1,6 +1,7 @@
+import 'package:test_flutter_gluon/data/model/base_model.dart';
 import 'package:test_flutter_gluon/data/model/items_model.dart';
 
-class CustomerModel {
+class CustomerModel implements BaseClass{
   final int id;
   final int customerId;
   final List<ItemsModel> items;

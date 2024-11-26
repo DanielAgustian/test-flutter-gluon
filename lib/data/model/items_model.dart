@@ -1,6 +1,9 @@
-import 'package:test_flutter_gluon/data/enum/category_enum.dart';
+import 'dart:convert';
 
-class ItemsModel {
+import 'package:test_flutter_gluon/data/enum/category_enum.dart';
+import 'package:test_flutter_gluon/data/model/base_model.dart';
+
+class ItemsModel implements BaseClass{
   int id;
   String name;
   CategoryEnum category;
@@ -71,6 +74,10 @@ class ItemsModel {
       'price': price,
       'discounts': discounts.map((discount) => discount.toJson()).toList(),
     };
+  }
+  @override
+  String toString() {
+    return jsonEncode(toJson());
   }
 }
 

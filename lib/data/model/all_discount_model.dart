@@ -1,4 +1,8 @@
-class AllDiscountModel {
+import 'dart:convert';
+
+import 'package:test_flutter_gluon/data/model/base_model.dart';
+
+class AllDiscountModel implements BaseClass {
   int id;
   String name;
   String type;
@@ -27,5 +31,21 @@ class AllDiscountModel {
       loyaltyDiscountCriteria: map['loyaltyDiscountCriteria'],
       loyaltyDiscountCriteriaValue: map['loyaltyDiscountCriteriaValue'],
     );
+  }
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "name": name,
+      "type": type,
+      "value": value,
+      "category": category,
+      "loyaltyDiscountCriteria": loyaltyDiscountCriteria,
+      "loyaltyDiscountCriteriaValue": loyaltyDiscountCriteriaValue,
+    };
+  }
+
+  @override
+  String toString() {
+    return jsonEncode(toJson());
   }
 }
