@@ -49,9 +49,28 @@ class ItemsModel {
           : DateTime.parse(map["expiredTime"]),
       packaging: map['packaging'],
       animalSpecific: map["animalSpecific"],
-      warrantyLengthInMonths: map['warrantyLengthInMonths'],
+      warrantyLengthInMonths: map['warrantyLengthInMonths'] == null ||
+              map['warrantyLengthInMonths'] == ''
+          ? null
+          : int.parse(map['warrantyLengthInMonths']),
       material: map['material'],
     );
+  }
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'category': category.name,
+      'expiredTime': expiredTime?.toIso8601String(),
+      'storageRequirements': storageRequirements,
+      'unit': unit,
+      'packaging': packaging,
+      'animalSpecific': animalSpecific,
+      'warrantyLengthInMonths': warrantyLengthInMonths,
+      'material': material,
+      'price': price,
+      'discounts': discounts.map((discount) => discount.toJson()).toList(),
+    };
   }
 }
 
@@ -64,5 +83,11 @@ class DiscountItemsModel {
   factory DiscountItemsModel.fromJson(Map<String, dynamic> map) {
     return DiscountItemsModel(
         type: map["type"] ?? "", value: map["value"] ?? "");
+  }
+  Map<String, dynamic> toJson() {
+    return {
+      'type': type,
+      'value': value,
+    };
   }
 }

@@ -57,10 +57,10 @@ class _ChooseScreenState extends State<ChooseScreen> {
   }
 
   void gotoWidgetTest1() {
-    context.go(RouteConstant().widgetTest1);
+    context.push(RouteConstant().widgetTest1);
   }
 
   void gotoDartOOPTest1() {
-    context.go(RouteConstant().dartOOPTest1);
+    context.push(RouteConstant().dartOOPTest1);
   }
 }

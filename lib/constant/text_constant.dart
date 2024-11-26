@@ -10,4 +10,5 @@ class TextConstant {
   final registerButton = "Register";
 
   final titleWidgetTest = "Supermarket A";
+  
 }

@@ -13,3 +13,4 @@ class ConvertError extends BaseError {
     super.message = "Convert data wrong.",
   });
 }
+

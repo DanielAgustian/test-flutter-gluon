@@ -39,6 +39,7 @@ dependencies:
   font_awesome_flutter: ^10.8.0
   fluttertoast: ^8.2.5
   dartz: ^0.10.1
+  flutter_riverpod: ^2.4.10
   
 
 dev_dependencies:

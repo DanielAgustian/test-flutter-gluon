@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:test_flutter_gluon/constant/color_constant.dart';
 
 class GluonAppbar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,7 +18,11 @@ class GluonAppbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: hasBackButton
           ? InkWell(
-              onTap: () {},
+              onTap: () {
+                if (context.canPop()) {
+                  context.pop();
+                }
+              },
               child: Center(
                 child: FaIcon(
                   FontAwesomeIcons.chevronLeft,
@@ -29,7 +34,8 @@ class GluonAppbar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: ColorConstant().colorSecondary,
       title: Text(
         title,
-        style: TextStyle(color: ColorConstant().colorPrimary, fontWeight: FontWeight.bold),
+        style: TextStyle(
+            color: ColorConstant().colorPrimary, fontWeight: FontWeight.bold),
       ),
       centerTitle: isCenterTitle,
     );
