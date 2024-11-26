@@ -17,10 +17,10 @@ class WidgetTest1Screen extends StatefulWidget {
 class _WidgetTest1ScreenState extends State<WidgetTest1Screen> {
   TextEditingController controllerName = TextEditingController();
   TextEditingController controllerPassword = TextEditingController();
-  final _columnKey = GlobalKey();
   double currColumnHeight = 1000;
   double currAvailHeight = 1001;
   double keyboardHeight = 0;
+
   @override
   void initState() {
     super.initState();
@@ -40,7 +40,6 @@ class _WidgetTest1ScreenState extends State<WidgetTest1Screen> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
-              key: _columnKey,
               mainAxisSize: currAvailHeight < currColumnHeight
                   ? MainAxisSize.min
                   : MainAxisSize.max,

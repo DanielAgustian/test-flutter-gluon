@@ -1,0 +1,97 @@
+{
+    "data":[
+        {
+            "id": 1, 
+            "name": "Toothpaste", 
+            "category": "householdProducts", 
+            "expiredTime": "2025-04-23T18:25:43.511Z", 
+            "storageRequirements": "none", 
+            "unit": "gram", 
+            "packaging": "plastic",
+            "animalSpecific": "", 
+            "warrantyLengthInMonths": "0", 
+            "material": "", 
+            "price": "20999.99",
+            "discounts": [ 
+                {
+                    "type": "fixed", 
+                    "value": "3000"
+                }
+            ]
+        },
+        {
+            "id": 2, 
+            "name": "Apple", 
+            "category": "groceries", 
+            "expiredTime": "2024-12-23T18:25:43.511Z", 
+            "storageRequirements": "refrigerator", 
+            "unit": "kilogram", 
+            "packaging": "plastic",
+            "animalSpecific": "", 
+            "warrantyLengthInMonths": "", 
+            "material": "", 
+            "price": "40499.99",
+            "discounts": [ 
+                {
+                    "type": "percentage", 
+                    "value": "4.5"
+                }
+            ]
+        },
+        {
+            "id": 3, 
+            "name": "Ruler and Pen Set", 
+            "category": "stationery", 
+            "storageRequirements": "none", 
+            "unit": "", 
+            "packaging": "",
+            "animalSpecific": "", 
+            "warrantyLengthInMonths": "0", 
+            "material": "wood", 
+            "price": "26999.99",
+            "discounts": [ 
+                {
+                    "type": "percentage", 
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "id": 4, 
+            "name": "Whiskas", 
+            "category": "petSupplies", 
+            "expiredTime": "2027-12-23T18:25:43.511Z", 
+            "storageRequirements": "", 
+            "unit": "", 
+            "packaging": "canned",
+            "animalSpecific": "cat", 
+            "warrantyLengthInMonths": "0", 
+            "material": "", 
+            "price": "47000",
+            "discounts": [ 
+                {
+                    "type": "percentage", 
+                    "value": "3"
+                }
+            ]
+        },
+        {
+            "id": 5, 
+            "name": "Dishwasher by Sanio", 
+            "category": "homeAppliances", 
+            "storageRequirements": "none", 
+            "unit": "", 
+            "packaging": "",
+            "animalSpecific": "", 
+            "warrantyLengthInMonths": "12", 
+            "material": "", 
+            "price": "10000000",
+            "discounts": [ 
+                {
+                    "type": "fixed", 
+                    "value": "500000"
+                }
+            ]
+        }
+    ]
+}
