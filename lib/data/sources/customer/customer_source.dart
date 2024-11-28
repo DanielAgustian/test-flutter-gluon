@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:test_flutter_gluon/constant/api_constant.dart';
 import 'package:test_flutter_gluon/data/error/api_error.dart';
-import 'package:test_flutter_gluon/data/model/all_discount_model.dart';
 import 'package:test_flutter_gluon/data/model/customer_list_model.dart';
 import 'package:test_flutter_gluon/data/model/customer_model.dart';
 import 'package:test_flutter_gluon/data/model/service_response.dart';

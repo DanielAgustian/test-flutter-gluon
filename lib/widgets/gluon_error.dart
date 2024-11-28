@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter_gluon/constant/color_constant.dart';
-import 'package:test_flutter_gluon/data/error/base_error.dart';
 
 class GluonErrorWidget extends StatelessWidget {
   final String message;
@@ -11,7 +10,7 @@ class GluonErrorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       color: ColorConstant().colorError,
       width: size.width,
       height: 200,

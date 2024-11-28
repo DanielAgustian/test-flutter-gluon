@@ -22,7 +22,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: RouteConstant().dartOOPTest1,
       builder: (BuildContext context, GoRouterState state) {
-        return DartOOP1Screen();
+        return const DartOOP1Screen();
       },
     ),
   ],

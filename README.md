@@ -1,16 +1,21 @@
 # test_flutter_gluon
 
-A new Flutter project.
+A Project to answer the test from Gluon.
 
-## Getting Started
+## Specification
+Flutter 3.13.0
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## How To Check the Result
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Please run the project using command "flutter run" 
+2. To click for widget challenge please click button "Widget Test 1"
+3. To check challenge Dart OOP Test 1, please click button "Dart OOP Test 1"
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Some Notes
+
+For challenge Dart OOP test 1 , I use json file reader with json files to mock API Call. All the json files is inside folder /assets/json/.
+
+
+
+

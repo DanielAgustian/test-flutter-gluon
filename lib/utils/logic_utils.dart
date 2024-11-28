@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:test_flutter_gluon/data/error/api_error.dart';
 import 'package:test_flutter_gluon/data/model/service_response.dart';
 

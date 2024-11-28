@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:test_flutter_gluon/constant/api_constant.dart';
 import 'package:test_flutter_gluon/data/error/api_error.dart';
 import 'package:test_flutter_gluon/data/model/items_model.dart';

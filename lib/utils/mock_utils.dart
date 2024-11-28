@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/services.dart';
 import 'package:test_flutter_gluon/constant/api_constant.dart';
 
@@ -14,7 +12,6 @@ class MockUtils {
           await rootBundle.loadString('assets/json/$filesName.json');
       return response;
     } catch (e) {
-      print(e);
       return null;
     }
   }

@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:test_flutter_gluon/data/model/discount_items_model.dart';
-import 'package:test_flutter_gluon/data/model/items_model.dart';
 
 class AllDiscountModel extends DiscountItemsModel {
   int id;
@@ -63,7 +62,6 @@ class AllDiscountModel extends DiscountItemsModel {
       case "productCategory":
         return super.calculateDiscount(price);
       case "loyalty":
-        print("------ Loyalty -------------" + name);
         if (getNumLoyaltyLimit() == null) {
           return price;
         }
@@ -75,8 +73,6 @@ class AllDiscountModel extends DiscountItemsModel {
               return price;
             }
           case "orderCount":
-            print("ITEMS TOTAL" + itemsTotal.toString());
-            print(getNumLoyaltyLimit());
             if (itemsTotal >= getNumLoyaltyLimit()!) {
               return super.calculateDiscount(price);
             } else {

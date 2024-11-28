@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -89,7 +88,7 @@ class _DartOOP1ScreenState extends ConsumerState<DartOOP1Screen> {
     }
     ServiceResponse<List<AllDiscountModel>> listDiscount = discountData.value;
     var res = data.onSuccess();
-    double totalItemsPrice =  logicToCalculateResult(res, listDiscount);
+    double totalItemsPrice = logicToCalculateResult(res, listDiscount);
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -128,8 +127,8 @@ class _DartOOP1ScreenState extends ConsumerState<DartOOP1Screen> {
     );
   }
 
-  double logicToCalculateResult(CustomerModel res,
-      ServiceResponse<List<AllDiscountModel>> listDiscount) {
+  double logicToCalculateResult(
+      CustomerModel res, ServiceResponse<List<AllDiscountModel>> listDiscount) {
     var resDiscount = listDiscount.onSuccess();
     var totalItemsPrice = res.totalPrice();
 
