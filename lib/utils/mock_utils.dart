@@ -6,7 +6,6 @@ import 'package:test_flutter_gluon/constant/api_constant.dart';
 class MockUtils {
   Future<String?> mockAPICall(String files) async {
     var filesName = _getFilesFromAPILink(files);
-    print("Files: $filesName");
     if (filesName == null) {
       return null;
     }
@@ -15,6 +14,7 @@ class MockUtils {
           await rootBundle.loadString('assets/json/$filesName.json');
       return response;
     } catch (e) {
+      print(e);
       return null;
     }
   }
@@ -30,7 +30,7 @@ class MockUtils {
       return pathFiles;
     }
     if (files.contains('/v1/orders/')) {
-      return 'order-by-customer';
+      return 'orders-by-customer';
     }
     return null;
   }

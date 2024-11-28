@@ -16,13 +16,13 @@
             "value": "15000",
             "category": "loyalty", 
             "loyaltyDiscountCriteria": "orderCount", 
-            "loyaltyDiscountCriteriaValue": "5"
+            "loyaltyDiscountCriteriaValue": "1"
         },
         {
             "id": 3, 
             "name": "Big Spender Discount",
             "type": "percentage", 
-            "value": "8%",
+            "value": "8",
             "category": "loyalty", 
             "loyaltyDiscountCriteria": "orderTotal", 
             "loyaltyDiscountCriteriaValue": "1000000"

@@ -35,7 +35,7 @@ class CustomerSource implements CustomerSourceInterface {
     if (json == null) {
       return ServiceResponse.error(NoDataError());
     }
-    return responseToModels(CustomerModel.fromJson, json['data']);
+    return responseToModels(CustomerModel.fromJson, json);
   }
 }
  

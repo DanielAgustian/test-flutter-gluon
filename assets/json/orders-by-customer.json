@@ -1,0 +1,86 @@
+{
+  "id": 1,
+  "customerId": 2,
+  "items": [
+    {
+      "id": 1,
+      "name": "Toothpaste",
+      "category": "householdProducts",
+      "expiredTime": "2025-04-23T18:25:43.511Z",
+      "storageRequirements": "none",
+      "unit": "gram",
+      "packaging": "plastic",
+      "animalSpecific": "",
+      "warrantyLengthInMonths": "0",
+      "material": "",
+      "price": "20999.99",
+      "discounts": [
+        {
+          "type": "fixed",
+          "value": "3000"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Apple",
+      "category": "groceries",
+      "expiredTime": "2024-12-23T18:25:43.511Z",
+      "storageRequirements": "refrigerator",
+      "unit": "kilogram",
+      "packaging": "plastic",
+      "animalSpecific": "",
+      "warrantyLengthInMonths": "",
+      "material": "",
+      "price": "40499.99",
+      "discounts": [
+        {
+          "type": "percentage",
+          "value": "4.5"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Ruler and Pen Set",
+      "category": "stationery",
+      "storageRequirements": "none",
+      "unit": "",
+      "packaging": "",
+      "animalSpecific": "",
+      "warrantyLengthInMonths": "0",
+      "material": "wood",
+      "price": "100000",
+      "discounts": [
+        {
+          "type": "percentage",
+          "value": "10"
+        },
+        {
+          "type": "fixed",
+          "value": "5000"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Dishwasher by Sanio",
+      "category": "homeAppliances",
+      "storageRequirements": "none",
+      "unit": "",
+      "packaging": "",
+      "animalSpecific": "",
+      "warrantyLengthInMonths": "12",
+      "material": "",
+      "price": "10000000",
+      "discounts": [
+        {
+          "type": "fixed",
+          "value": "500000"
+        }
+      ]
+    }
+  ],
+  "date": "2025-04-23T18:25:43.511Z",
+  "status": "paid"
+}

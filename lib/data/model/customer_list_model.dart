@@ -1,6 +1,7 @@
-import 'package:test_flutter_gluon/data/model/base_model.dart';
 
-class CustomerListModel implements BaseClass {
+import 'dart:convert';
+
+class CustomerListModel  {
   int id;
   String name;
 
@@ -17,5 +18,14 @@ class CustomerListModel implements BaseClass {
     );
   }
 
-
+  Map<String, dynamic> toJson(){
+    return {
+      "id": id,
+      "name": name
+    };
+  }
+  @override
+  String toString() {
+    return jsonEncode(toJson());
+  }
 }

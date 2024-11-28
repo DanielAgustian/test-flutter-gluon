@@ -1,9 +1,8 @@
 import 'dart:convert';
-
 import 'package:test_flutter_gluon/data/enum/category_enum.dart';
-import 'package:test_flutter_gluon/data/model/base_model.dart';
+import 'package:test_flutter_gluon/data/model/discount_items_model.dart';
 
-class ItemsModel implements BaseClass{
+class ItemsModel {
   int id;
   String name;
   CategoryEnum category;
@@ -34,8 +33,8 @@ class ItemsModel implements BaseClass{
 
   factory ItemsModel.fromJson(Map<String, dynamic> map) {
     List<DiscountItemsModel> mapDiscount = [];
-    if (map['notifications'] != null) {
-      var listDiscount = List.from(map['notifications']).toList();
+    if (map['discounts'] != null) {
+      var listDiscount = List.from(map['discounts']).toList();
       mapDiscount =
           listDiscount.map((e) => DiscountItemsModel.fromJson(e)).toList();
     }
@@ -75,26 +74,28 @@ class ItemsModel implements BaseClass{
       'discounts': discounts.map((discount) => discount.toJson()).toList(),
     };
   }
+
   @override
   String toString() {
     return jsonEncode(toJson());
   }
+
+  double getTruePrice() {
+    double percentage = 0, fixed = 0;
+    double currPrice = double.parse(price);
+    for (var discount in discounts) {
+      if (discount.type == 'percentage') {
+        percentage += double.parse(discount.value);
+      } else {
+        fixed += double.parse(discount.value);
+      }
+    }
+    double decPercent = (100 - percentage) / 100;
+    var result = (currPrice * decPercent) - fixed;
+    if (result < 0) {
+      result = 0;
+    }
+    return result;
+  }
 }
 
-class DiscountItemsModel {
-  String type;
-  String value;
-
-  DiscountItemsModel({required this.type, required this.value});
-
-  factory DiscountItemsModel.fromJson(Map<String, dynamic> map) {
-    return DiscountItemsModel(
-        type: map["type"] ?? "", value: map["value"] ?? "");
-  }
-  Map<String, dynamic> toJson() {
-    return {
-      'type': type,
-      'value': value,
-    };
-  }
-}
